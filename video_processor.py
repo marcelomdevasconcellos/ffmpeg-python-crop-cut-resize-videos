@@ -20,7 +20,7 @@ ffmpeg
 """.replace('\n', '')
 
 
-command_rezise = """
+command_resize = """
 ffmpeg
  -i temp.mp4
  -vf scale=768:432
@@ -45,5 +45,5 @@ for d in data_list:
     }
     if not os.path.exists(data_dict['file_output']):
         os.system(command % data_dict)
-        os.system(command_rezise % data_dict)
+        os.system(command_resize % data_dict)
         os.system('rm temp.mp4')
