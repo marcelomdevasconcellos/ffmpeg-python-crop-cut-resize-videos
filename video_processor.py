@@ -20,6 +20,14 @@ ffmpeg
 """.replace('\n', '')
 
 
+command_rezise = """
+ffmpeg
+ -i %(file_output)s
+ -vf scale=768:432
+ %(file_output)s
+""".replace('\n', '')
+
+
 data = open_file('data.txt')
 data_list = data.split('\n')
 del data_list[0]
@@ -35,5 +43,6 @@ for d in data_list:
         'x': a[6],
         'y': a[7],
     }
-    if not os.exists(data_dict['file_output']):
+    if not os.path.exists(data_dict['file_output']):
         os.system(command % data_dict)
+        os.system(command_rezise % data_dict)
