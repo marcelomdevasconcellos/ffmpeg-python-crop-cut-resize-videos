@@ -16,13 +16,13 @@ ffmpeg
  -t %(time_final)s  
  -async 1 
  -filter:v "crop=%(width)s:%(height)s:%(x)s:%(y)s" 
- %(file_output)s
+ temp.mp4
 """.replace('\n', '')
 
 
 command_rezise = """
 ffmpeg
- -i %(file_output)s
+ -i temp.mp4
  -vf scale=768:432
  %(file_output)s
 """.replace('\n', '')
@@ -46,3 +46,4 @@ for d in data_list:
     if not os.path.exists(data_dict['file_output']):
         os.system(command % data_dict)
         os.system(command_rezise % data_dict)
+        os.system('rm temp.mp4')
