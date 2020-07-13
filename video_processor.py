@@ -11,7 +11,7 @@ def open_file(filename):
 
 command = """
 ffmpeg
- -i %(filename_input)s
+ -i %(file_input)s
  -ss %(time_initial)s 
  -t %(time_final)s  
  -async 1 
@@ -34,7 +34,7 @@ del data_list[0]
 for d in data_list:
     a = d.split('|')
     data_dict = {
-        'filename_input': a[0],
+        'file_input': a[0],
         'file_output': a[1],
         'time_initial': a[2],
         'time_final': a[3],
